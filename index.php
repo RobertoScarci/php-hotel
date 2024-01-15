@@ -1,4 +1,6 @@
-<?php     $hotels = [
+<?php     
+  
+  $hotels = [
 
 [
     'name' => 'Hotel Belvedere',
@@ -39,3 +41,52 @@
 ];
 
 ?>
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <main>
+        <table class="table table-hover border">
+            <thead> 
+                <tr>
+                    <th scope="col" class="border">Hotel's Name:</th>
+                    <th scope="col" class="border">Description:</th>
+                    <th scope="col" class="border">Parking:</th>
+                    <th scope="col" class="border">Vote:</th>
+                    <th scope="col" class="border">Distance to center:</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php foreach ($hotels as $hotel) { ?>
+                    <tr>
+                        <td class="border"> <?php echo $hotel['name'] ?></td>
+                        <td class="border"> <?php echo $hotel['description'] ?></td>
+                        <td class="border"> <?php if ($hotel['parking'] === true) {
+                                    echo 'Parcheggio disponibile: si';
+                                } else {
+                                    echo 'Parcheggio disponibile: no';
+                                } ?></td>
+                        <td class="border"> <?php echo $hotel['vote'] ?> &star; </td>
+                        <td class="border"> <?php echo $hotel['distance_to_center'] . ' km' ?></td>
+
+
+                    </tr>
+            </tbody>
+        <?php } ?>
+        </table>
+
+    </main>
+</body>
+
+</html>
